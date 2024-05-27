@@ -11,7 +11,8 @@ def clean_text(text):
     return text
 
 def preprocess_data(data):
-    for faq in data:
+    for website, faqs in data.items():
+        for faq in faqs:
             faq['question'] = clean_text(faq['question'])
             faq['answer'] = clean_text(faq['answer'])
     return data
@@ -25,7 +26,12 @@ if __name__ == "__main__":
     output_filename = 'cleaned_faqs.json'
 
     data = load_data(input_filename)
-    cleaned_data = preprocess_data(data)
+    cleaned_data = {}
+
+    for website_data in data:
+        for website, faqs in website_data.items():
+            cleaned_data[website] = preprocess_data({website: faqs})[website]
+
     save_data(cleaned_data, output_filename)
 
     print(f"Preprocessed data saved to {output_filename}")

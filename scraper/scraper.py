@@ -16,7 +16,7 @@ def fetch_webpage(url):
         logging.error(f"Error fetching the webpage: {e}")
         return None
 
-def parse_faqs(html_content):
+def parse_faqs(html_content, website):
     """Parses the FAQ questions and answers from the HTML content."""
     soup = BeautifulSoup(html_content, "html.parser")
     faq_elements = soup.find_all("div", class_="rich-text-body")
@@ -26,7 +26,7 @@ def parse_faqs(html_content):
         question = faq_elements[i].get_text(strip=True)
         answer = faq_elements[i + 1].get_text(strip=True)
         faqs.append({"question": question, "answer": answer})
-    
+    faqs = [{website: faqs}]
     return faqs
 
 def save_to_json(data, filename):
@@ -38,15 +38,16 @@ def save_to_json(data, filename):
     except IOError as e:
         logging.error(f"Error saving to JSON file: {e}")
 
-def main(url, output_file):
+def main(url, output_file, website):
     """Main function to fetch, parse, and save FAQs."""
     html_content = fetch_webpage(url)
     if html_content:
-        faqs = parse_faqs(html_content)
+        faqs = parse_faqs(html_content, website)
         save_to_json(faqs, output_file)
 
 if __name__ == "__main__":
     URL = "https://www.databricks.com/product/faq"
     OUTPUT_FILE = "faqs.json"
+    WEBSITE = "databricks"
     
-    main(URL, OUTPUT_FILE)
+    main(URL, OUTPUT_FILE, WEBSITE)
