@@ -8,7 +8,7 @@ import os
 
 # oai_key = os.getenv('OPENAI_API_KEY')
 # client = OpenAI(api_key=oai_key)
-client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+client = OpenAI(api_key=st.secrets["openai"])
 
 def load_data(filename):
     with open(filename, 'r') as f:
@@ -56,7 +56,7 @@ def main():
     
     os_client = OpenSearch(
         hosts=['https://search-faq-chatbot-5ep7nhawvwkiqp5tow37fklyji.us-east-2.es.amazonaws.com'],
-        http_auth=(st.secrets("ES_USERNAME"), st.secrets("ES_PASSWORD"))
+        http_auth=(st.secrets("esuser"), st.secrets("espass"))
     )
 
     websites = list(data.keys())
