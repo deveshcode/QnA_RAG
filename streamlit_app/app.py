@@ -1,16 +1,17 @@
 import streamlit as st
 from sentence_transformers import SentenceTransformer
-from opensearchpy import OpenSearch
-import json
 import json
 import numpy as np
-from sentence_transformers import SentenceTransformer
 from opensearchpy import OpenSearch
 from openai import OpenAI
 import os
+from dotenv import load_dotenv
 
-oai_key = os.getenv('OPENAI_API_KEY')
-client = OpenAI(api_key=oai_key)
+load_dotenv()
+
+# oai_key = os.getenv('OPENAI_API_KEY')
+# client = OpenAI(api_key=oai_key)
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 def load_data(filename):
     with open(filename, 'r') as f:
@@ -58,7 +59,7 @@ def main():
     
     os_client = OpenSearch(
         hosts=['https://search-faq-chatbot-5ep7nhawvwkiqp5tow37fklyji.us-east-2.es.amazonaws.com'],
-        http_auth=(os.getenv("ES_USERNAME"), os.getenv("ES_PASSWORD"))
+        http_auth=(st.secrets("ES_USERNAME"), st.secrets("ES_PASSWORD"))
     )
 
     websites = list(data.keys())
