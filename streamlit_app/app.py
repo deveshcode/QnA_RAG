@@ -5,9 +5,6 @@ import numpy as np
 from opensearchpy import OpenSearch
 from openai import OpenAI
 import os
-from dotenv import load_dotenv
-
-load_dotenv()
 
 # oai_key = os.getenv('OPENAI_API_KEY')
 # client = OpenAI(api_key=oai_key)
