@@ -79,7 +79,7 @@ def index_faq_embeddings(os_client, index_name, data):
 
 if __name__ == "__main__":
     os_client = OpenSearch(
-        hosts=['https://search-faq-chatbot-5ep7nhawvwkiqp5tow37fklyji.us-east-2.es.amazonaws.com'],
+        hosts=['https://search-faq-chatbot-jzwpe6i7iz5elujpadeanj6fby.us-east-2.es.amazonaws.com'],
         http_auth=(os.getenv("ES_USERNAME"), os.getenv("ES_PASSWORD"))
     )
 

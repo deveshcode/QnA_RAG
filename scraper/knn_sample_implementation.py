@@ -111,7 +111,7 @@ def perform_knn_search(os_client, index_name, query_fruit, model):
 # Initialize OpenSearch client
 # Initialize OpenSearch client
 os_client = OpenSearch(
-    hosts=['https://search-faq-chatbot-5ep7nhawvwkiqp5tow37fklyji.us-east-2.es.amazonaws.com'],
+    hosts=['https://search-faq-chatbot-jzwpe6i7iz5elujpadeanj6fby.us-east-2.es.amazonaws.com'],
     http_auth=(os.getenv("ES_USERNAME"), os.getenv("ES_PASSWORD"))
 )
 
