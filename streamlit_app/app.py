@@ -56,7 +56,7 @@ def main():
     
     os_client = OpenSearch(
         hosts=['https://search-faq-chatbot-5ep7nhawvwkiqp5tow37fklyji.us-east-2.es.amazonaws.com'],
-        http_auth=(st.secrets("esuser"), st.secrets("espass"))
+        http_auth=(st.secrets["esuser"], st.secrets["espass"])
     )
 
     websites = list(data.keys())
