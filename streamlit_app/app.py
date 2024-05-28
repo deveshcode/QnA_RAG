@@ -1,9 +1,11 @@
+from sentence_transformers import SentenceTransformer
+from opensearchpy import OpenSearch
+import json
 import streamlit as st
 import json
 import numpy as np
-import pickle
-from sklearn.metrics.pairwise import cosine_similarity
 from sentence_transformers import SentenceTransformer
+from opensearchpy import OpenSearch
 from openai import OpenAI
 import os
 
@@ -14,10 +16,6 @@ def load_data(filename):
     with open(filename, 'r') as f:
         return json.load(f)
 
-def load_cache(filename):
-    with open(filename, 'rb') as f:
-        return pickle.load(f)
-
 def get_answer(question, context):
     response = client.chat.completions.create(
         model="gpt-3.5-turbo",
@@ -27,28 +25,42 @@ def get_answer(question, context):
     )
     return response.choices[0].message.content
 
-def find_similar_questions(question, faq_embeddings, model, top_n=5):
-    question_embedding = model.encode(question).reshape(1, -1)
-    faq_questions = list(faq_embeddings.keys())
-    embeddings = np.array(list(faq_embeddings.values()))
-    
-    similarities = cosine_similarity(question_embedding, embeddings).flatten()
-    similar_indices = similarities.argsort()[-top_n:][::-1]
-    
-    similar_faqs = [(faq_questions[i], similarities[i]) for i in similar_indices]
-    return similar_faqs
+def perform_knn_search(os_client, index_name, query, model):
+    query_vector = model.encode(query).tolist()  # Ensure query vector matches the dimensionality of the vectors in the index
+
+    knn_query = {
+        "size": 5,
+        "query": {
+            "knn": {
+                "question_embedding": {
+                    "vector": query_vector,
+                    "k": 5
+                }
+            }
+        }
+    }
+    response = os_client.search(index=index_name, body=knn_query)
+    print("\nSearch Response:")
+    return [(hit['_source']['question'], hit['_source']['answer']) for hit in response['hits']['hits']]
 
 def main():
-    st.title("QnA Chatbot")
+    st.set_page_config(page_title="QnA Chatbot", page_icon="💬", layout="wide")
+    st.title("💬 QnA Chatbot")
     st.write("This chatbot answers FAQs scraped from selected websites.")
+    
     st.sidebar.title("Navigation")
     st.sidebar.write("Use this sidebar to navigate through the app.")
-
     st.sidebar.header("Select a Website")
-    data = load_data('vectorized_faqs.json')
-    faq_embeddings = load_cache('embeddings_cache.pkl')
-    model = SentenceTransformer('all-MiniLM-L6-v2')
     
+    data = load_data('vectorized_faqs.json')
+    model = SentenceTransformer('all-MiniLM-L6-v2')
+    index_name = "faqs_v3"
+    
+    os_client = OpenSearch(
+        hosts=['https://search-faq-chatbot-5ep7nhawvwkiqp5tow37fklyji.us-east-2.es.amazonaws.com'],
+        http_auth=(os.getenv("ES_USERNAME"), os.getenv("ES_PASSWORD"))
+    )
+
     websites = list(data.keys())
     selected_website = st.sidebar.selectbox("Choose a website", websites)
 
@@ -63,22 +75,25 @@ def main():
             st.write("**Initial Question:**")
             st.write(question)
 
-            similar_faqs = find_similar_questions(question, faq_embeddings, model)
-            context_list = []
-            for q, _ in similar_faqs:
-                for faq in faqs:
-                    if faq['question'] == q:
-                        context_list.append(f"Q: {faq['question']}\nA: {faq['answer']}")
-                        break
-            context = "\n".join(context_list)
+            st.subheader("Results without Context")
+            answer_without_context = get_answer(question, context="")
+            st.write(answer_without_context)
 
-            st.write("**Appended Prompt:**")
-            appended_prompt = f"Answer the question based on the context:\n\nContext: {context}\n\nQuestion: {question}\nAnswer:"
-            st.code(appended_prompt, language='plaintext')
+            similar_faqs = perform_knn_search(os_client, index_name, question, model)
+            context = "\n".join([f"Q: {q}\nA: {a}" for q, a in similar_faqs])
 
-            answer = get_answer(question, context)
-            st.subheader("Answer")
-            st.write(answer)
+            st.write("**Appended Context:**")
+            st.code(context, language='plaintext')
+
+            st.subheader("Results with Context")
+            answer_with_context = get_answer(question, context)
+            st.write(answer_with_context)
+
+            st.subheader("Comparison")
+            st.write("**Answer without Context:**")
+            st.write(answer_without_context)
+            st.write("**Answer with Context:**")
+            st.write(answer_with_context)
 
 if __name__ == "__main__":
     main()
