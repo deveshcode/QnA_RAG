@@ -98,11 +98,12 @@
 import streamlit as st
 from sentence_transformers import SentenceTransformer
 import json
-from opensearchpy import OpenSearch, RequestsHttpConnection
+import numpy as np
+from opensearchpy import OpenSearch
 from openai import OpenAI
 import os
 
-# Initialize OpenAI client
+# Set up OpenAI API key from Streamlit secrets
 client = OpenAI(api_key=st.secrets["openai"])
 
 def load_data(filename):
@@ -139,64 +140,63 @@ def main():
     st.set_page_config(page_title="QnA Chatbot", page_icon="💬", layout="wide")
     st.title("💬 QnA Chatbot")
     st.write("This chatbot answers FAQs scraped from selected websites.")
-
+    
     st.sidebar.title("Navigation")
     st.sidebar.write("Use this sidebar to navigate through the app.")
     st.sidebar.header("Select a Website")
 
+    debug_mode = st.sidebar.checkbox("Debug Mode", value=False)
+    
     data = load_data('vectorized_faqs.json')
     model = SentenceTransformer('all-MiniLM-L6-v2')
     index_name = "faqs_v3"
-
+    
     os_client = OpenSearch(
         hosts=['https://search-faq-chatbot-jzwpe6i7iz5elujpadeanj6fby.us-east-2.es.amazonaws.com'],
-        http_auth=(st.secrets["esuser"], st.secrets["espass"]),
-        use_ssl=True,
-        verify_certs=True,
-        connection_class=RequestsHttpConnection
+        http_auth=(st.secrets["esuser"], st.secrets["espass"])
     )
 
     websites = list(data.keys())
     selected_website = st.sidebar.selectbox("Choose a website", websites)
 
+    if "messages" not in st.session_state:
+        st.session_state.messages = []
+
+    # Display chat messages from history on app rerun
+    for message in st.session_state.messages:
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
+
     if selected_website:
         faqs = data[selected_website]
 
-        st.header("Chat with the Bot")
+        prompt = st.chat_input("Ask a question based on the selected website's FAQs")
+        if prompt:
+            with st.chat_message("user"):
+                st.markdown(f"**User:** {prompt}")
+            st.session_state.messages.append({"role": "user", "content": f"**User:** {prompt}"})
 
-        if "messages" not in st.session_state:
-            st.session_state.messages = []
+            # Perform KNN search and display intermediate results
+            similar_faqs = perform_knn_search(os_client, index_name, prompt, model)
+            context = "\n\n".join([f"**Q:** {q}\n**A:** {a}" for q, a in similar_faqs])
 
-        def format_message(sender, text):
-            if sender == "user":
-                return {"role": "user", "content": text}
-            else:
-                return {"role": "assistant", "content": text}
+            if debug_mode:
+                intermediate_message = f"**Top 5 Relevant Chunks:**\n\n{context}"
+                with st.chat_message("assistant"):
+                    st.markdown(intermediate_message)
+                st.session_state.messages.append({"role": "assistant", "content": intermediate_message})
 
-        user_input = st.text_input("You:", key="input")
+                # Show the appended prompt being sent to the API
+                appended_prompt = f"Answer the question based on the context:\n\nContext: {context}\n\nQuestion: {prompt}\nAnswer:"
+                with st.chat_message("assistant"):
+                    st.markdown(f"**Appended Prompt Sent to API:**\n\n```\n{appended_prompt}\n```")
+                st.session_state.messages.append({"role": "assistant", "content": f"**Appended Prompt Sent to API:**\n\n```\n{appended_prompt}\n```"})
 
-        if user_input:
-            st.session_state.messages.append(format_message("user", user_input))
-
-            with st.spinner("Thinking..."):
-                similar_faqs = perform_knn_search(os_client, index_name, user_input, model)
-                context = "\n".join([f"Q: {q}\nA: {a}" for q, a in similar_faqs])
-
-                answer = get_answer(user_input, context)
-                st.session_state.messages.append(format_message("bot", answer))
-
-        if st.button("Clear Chat"):
-            st.session_state.messages = []
-
-        chat_container = st.container()
-        with chat_container:
-            st.markdown('<div style="height:400px; overflow-y:scroll; border:1px solid #ccc; padding:10px; border-radius:10px;">', unsafe_allow_html=True)
-            for msg in st.session_state.messages:
-                if msg["role"] == "user":
-                    st.markdown(f'<div style="text-align: right; background-color: #dcf8c6; padding: 10px; border-radius: 10px; margin: 5px 0;">{msg["content"]}</div>', unsafe_allow_html=True)
-                else:
-                    st.markdown(f'<div style="text-align: left; background-color: #f1f0f0; padding: 10px; border-radius: 10px; margin: 5px 0;">{msg["content"]}</div>', unsafe_allow_html=True)
-            st.markdown('</div>', unsafe_allow_html=True)
+            # Generate the final answer with context
+            answer = get_answer(prompt, context)
+            with st.chat_message("assistant"):
+                st.markdown(f"**Assistant:** {answer}")
+            st.session_state.messages.append({"role": "assistant", "content": f"**Assistant:** {answer}"})
 
 if __name__ == "__main__":
     main()
