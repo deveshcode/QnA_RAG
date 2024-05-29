@@ -185,11 +185,18 @@ def main():
                 answer = get_answer(user_input, context)
                 st.session_state.messages.append(format_message("bot", answer))
 
-        for msg in st.session_state.messages:
-            if msg["role"] == "user":
-                st.text_area("You", value=msg["content"], height=50, key=f"user_{len(st.session_state.messages)}")
-            else:
-                st.text_area("Bot", value=msg["content"], height=50, key=f"bot_{len(st.session_state.messages)}")
+        if st.button("Clear Chat"):
+            st.session_state.messages = []
+
+        chat_container = st.container()
+        with chat_container:
+            st.markdown('<div style="height:400px; overflow-y:scroll; border:1px solid #ccc; padding:10px; border-radius:10px;">', unsafe_allow_html=True)
+            for msg in st.session_state.messages:
+                if msg["role"] == "user":
+                    st.markdown(f'<div style="text-align: right; background-color: #dcf8c6; padding: 10px; border-radius: 10px; margin: 5px 0;">{msg["content"]}</div>', unsafe_allow_html=True)
+                else:
+                    st.markdown(f'<div style="text-align: left; background-color: #f1f0f0; padding: 10px; border-radius: 10px; margin: 5px 0;">{msg["content"]}</div>', unsafe_allow_html=True)
+            st.markdown('</div>', unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
