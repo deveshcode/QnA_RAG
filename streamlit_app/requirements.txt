@@ -3,3 +3,4 @@ opensearch-py==2.5.0
 sentence-transformers==2.7.0
 transformers==4.41.0
 openai
+boto3
