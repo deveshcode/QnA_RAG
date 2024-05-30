@@ -5,10 +5,13 @@ import numpy as np
 from opensearchpy import OpenSearch
 from openai import OpenAI
 import boto3
+from groq import Groq
+import os
 
-# Set up OpenAI and Bedrock API clients
+# Set up OpenAI, Bedrock, and Groq API clients
 openai_client = OpenAI(api_key=st.secrets["openai"])
 bedrock = boto3.client(service_name='bedrock-runtime', region_name='us-east-1')
+groq_client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
 # Define the Titan model and inference parameters
 titan_model_id = 'amazon.titan-text-lite-v1'
@@ -18,6 +21,9 @@ titan_inference_params = {
     'temperature': 0.5,
     'topP': 0.9
 }
+
+# Define the Groq model
+groq_model = "llama3-8b-8192"
 
 # Load data function
 def load_data(filename):
@@ -41,6 +47,16 @@ def get_answer_titan(question, context):
     response_body = json.loads(response.get('body').read())
     return response_body.get('results')[0].get('outputText')
 
+# Groq model answer function
+def get_answer_groq(question, context):
+    chat_completion = groq_client.chat.completions.create(
+        messages=[
+            {"role": "user", "content": f"Answer the question based on the context:\n\nContext: {context}\n\nQuestion: {question}\nAnswer:"}
+        ],
+        model=groq_model,
+    )
+    return chat_completion.choices[0].message.content
+
 # Perform KNN search function
 def perform_knn_search(os_client, index_name, query, model):
     query_vector = model.encode(query).tolist()  # Ensure query vector matches the dimensionality of the vectors in the index
@@ -63,19 +79,19 @@ def main():
     st.set_page_config(page_title="QnA Chatbot", page_icon="💬", layout="wide")
     st.title("💬 QnA Chatbot")
     st.write("This chatbot answers FAQs scraped from selected websites.")
-    
+
     st.sidebar.title("Navigation")
     st.sidebar.write("Use this sidebar to navigate through the app.")
     st.sidebar.header("Select a Website")
 
     # LLM selection dropdown
-    llm_option = st.sidebar.selectbox("Choose a Language Model", ["OpenAI GPT-3.5-turbo", "Amazon Titan"])
+    llm_option = st.sidebar.selectbox("Choose a Language Model", ["OpenAI GPT-3.5-turbo", "Amazon Titan", "Groq Llama3"])
     debug_mode = st.sidebar.checkbox("Debug Mode", value=False)
-    
+
     data = load_data('vectorized_faqs.json')
     model = SentenceTransformer('all-MiniLM-L6-v2')
     index_name = "faqs_v3"
-    
+
     os_client = OpenSearch(
         hosts=['https://search-faq-chatbot-jzwpe6i7iz5elujpadeanj6fby.us-east-2.es.amazonaws.com'],
         http_auth=(st.secrets["esuser"], st.secrets["espass"])
@@ -120,9 +136,11 @@ def main():
             # Generate the final answer with context using selected LLM
             if llm_option == "OpenAI GPT-3.5-turbo":
                 answer = get_answer_openai(prompt, context)
-            else:
+            elif llm_option == "Amazon Titan":
                 answer = get_answer_titan(prompt, context)
-            
+            else:
+                answer = get_answer_groq(prompt, context)
+
             with st.chat_message("assistant"):
                 st.markdown(f"**Assistant:** {answer}")
             st.session_state.messages.append({"role": "assistant", "content": f"**Assistant:** {answer}"})
