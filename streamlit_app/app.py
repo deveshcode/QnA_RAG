@@ -11,7 +11,7 @@ import os
 # Set up OpenAI, Bedrock, and Groq API clients
 openai_client = OpenAI(api_key=st.secrets["openai"])
 bedrock = boto3.client(service_name='bedrock-runtime', region_name='us-east-1')
-groq_client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
+groq_client = Groq(api_key=st.secrets["groq_llama"])
 
 # Define the Titan model and inference parameters
 titan_model_id = 'amazon.titan-text-lite-v1'
