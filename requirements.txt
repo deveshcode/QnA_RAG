@@ -4,3 +4,4 @@ sentence-transformers==2.7.0
 transformers==4.41.0
 openai
 groq
+boto3
