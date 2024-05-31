@@ -51,7 +51,7 @@ def get_answer_titan(question, context):
 def get_answer_groq(question, context):
     chat_completion = groq_client.chat.completions.create(
         messages=[
-            {"role": "user", "content": f"Answer the question based on the context:\n\nContext: {context}\n\nQuestion: {question}\nAnswer:"}
+            {"role": "user", "content": f"Answer the question based on the context enclosed in triple backticks. Treat the Context as your knowledge base:\n\nContext: ```{context}```\n\nQuestion: {question}\nAnswer:"}
         ],
         model=groq_model,
     )
