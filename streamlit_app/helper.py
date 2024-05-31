@@ -8,6 +8,15 @@ import boto3
 
 openai_client = OpenAI(api_key=st.secrets["openai"])
 # Define the Titan model and inference parameters
+aws_access_key_id = st.secrets["aws_access_key_id"]
+aws_secret_access_key = st.secrets["aws_secret_access_key"]
+
+# Create a session with the AWS credentials
+session = boto3.Session(
+    aws_access_key_id=aws_access_key_id,
+    aws_secret_access_key=aws_secret_access_key,
+    region_name='us-east-1'  # Replace with your desired region
+)
 bedrock = boto3.client(service_name='bedrock-runtime', region_name='us-east-1')
 titan_model_id = 'amazon.titan-text-lite-v1'
 titan_inference_params = {

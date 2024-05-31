@@ -11,6 +11,15 @@ os_client = OpenSearch(
         hosts=[st.secrets["esurl"]],
         http_auth=(st.secrets["esuser"], st.secrets["espass"])
     )
+aws_access_key_id = st.secrets["aws_access_key_id"]
+aws_secret_access_key = st.secrets["aws_secret_access_key"]
+
+# Create a session with the AWS credentials
+session = boto3.Session(
+    aws_access_key_id=aws_access_key_id,
+    aws_secret_access_key=aws_secret_access_key,
+    region_name='us-east-1'  # Replace with your desired region
+)
 
 def main():
     st.set_page_config(page_title="QnA Chatbot", page_icon="💬", layout="wide")
