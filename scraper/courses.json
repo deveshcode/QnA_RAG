@@ -1,0 +1,212 @@
+[
+    {
+        "course": "INFO\u00a05001.  Application Modeling and Design.  (4 Hours)",
+        "description": "Practices social-technical software engineering methods and tools to solve real-world problems. Explores innovative design and programming techniques to build significant business applications quickly. Studies the process of systematically combining UX techniques, business processes, and complex data models to assemble applications that are user-friendly and meet business requirements. Employs the object-oriented paradigm, visual user interface design principles, and programming languages such as Java, as well as productivity tools, to put together complicated, powerful business applications with ease. Explores the art of how to systematically write software programs to solve any business problem, through practicing simple and smart ways of making software programming enjoyable.",
+        "prerequisites": "None"
+    },
+    {
+        "course": "INFO\u00a05002.  Introduction to Python for Information Systems.  (4 Hours)",
+        "description": "Studies the Python programming language for application engineering. This hands-on course offers students an opportunity to obtain proficiency in the core concepts of Python and the skills and knowledge for building applications using any of the hundreds of thousands of task-specific Python libraries. Covers the important concepts such as reading and writing to standard IO, using operators, controlling the flow of execution, using functions, reading and writing files, and basic object-oriented programming concepts. Applies tools and techniques to classical software engineering and Python-specific facilities such as code introspection, reuse, built-in sequence types, and iteration.",
+        "prerequisites": "None"
+    },
+    {
+        "course": "INFO\u00a05100.  Application Engineering and Development.  (4 Hours)",
+        "description": "Takes students in a step-by-step manner through the process of systematically combining UX techniques, business processes, and complex data models to assemble applications that are user-friendly and meet business requirements. Employs the object-oriented paradigm, visual user experience, and system design principles to put together complicated, powerful, real-world applications. The primary objective of this course is to practice social-technical software engineering methods and tools to solve real-world problems. Offers students an opportunity to learn innovative design and programming techniques to build significant business applications quickly; to practice simple and smart ways of making software construction enjoyable; and to master the art of how to systematically write software programs to solve any business problem.",
+        "prerequisites": "None"
+    },
+    {
+        "course": "INFO\u00a05101.  Lab for INFO 5100.  (0 Hours)",
+        "description": "AccompaniesINFO\u00a05100. Provides additional instruction in Java programming.",
+        "prerequisites": "None"
+    },
+    {
+        "course": "INFO\u00a06105.  Data Science Engineering Methods and Tools.  (4 Hours)",
+        "description": "Introduces the fundamental techniques for machine learning and data science engineering. Discusses a variety of machine learning algorithms, along with examples of their implementation, evaluation, and best practices. Lays the foundation of how learning models are derived from complex data pipelines, both algorithmically and practically. Topics include supervised learning (parametric/nonparametric algorithms, support vector machines, kernels, neural networks, deep learning) and unsupervised learning (clustering, dimensionality reduction, recommender systems). Based on numerous real-world case studies.",
+        "prerequisites": "Prerequisite(s):INFO\u00a05100(may be taken concurrently) with a minimum grade of B-  orINFO\u00a05100(may be taken concurrently) with a minimum grade of B-  orCSYE\u00a06200(may be taken concurrently) with a minimum grade of B-"
+    },
+    {
+        "course": "INFO\u00a06106.  Neural Modeling Methods and Tools.  (4 Hours)",
+        "description": "Uses a graph theoretic approach to build models representing dependencies of model components instead of using analytical functions in statistics to interpolate observations, build data models, and estimate model parameters. The interpolation is still parametric, but the parameters are graph related and do not involve analytic functions. Discusses how to explain neural models and not fear them; when it is appropriate to use neural models; and how to interact with machines that use neural models in the same way one would trust a friend, so that trust between humans and machines is enhanced rather than diminished. These so-called neural models mirror in some regard how biological brains build models to make sense of the world and do predictions.",
+        "prerequisites": "Prerequisite(s):INFO\u00a06105with a minimum grade of B"
+    },
+    {
+        "course": "INFO\u00a06150.  Web Design and User Experience Engineering.  (4 Hours)",
+        "description": "Exposes students to both conceptual and technical aspects of Web design. User experience design is the discipline of creating a useful and usable website or application that is easily navigated and meets the needs of both the site owner and its users. Covers Web standards and best practices. Studies the fundamental concepts, techniques, practices, work flows, and tools associated with the practice of user-experience design in Web interfaces. Offers students an opportunity to learn the core principles of information architecture, usability, marketing hierarchy, and user experience for contextual, value-driven websites. Additional areas of focus include typography, color theory and composition, responsive design, CSS3 concepts, basic scripting, and JavaScript libraries to create functional, effective, and visually appealing websites.",
+        "prerequisites": "Prerequisite(s):INFO\u00a05100(may be taken concurrently) with a minimum grade of B-  orINFO\u00a05100(may be taken concurrently) with a minimum grade of B-  orCSYE\u00a06200(may be taken concurrently) with a minimum grade of B-"
+    },
+    {
+        "course": "INFO\u00a06205.  Program Structure and Algorithms.  (4 Hours)",
+        "description": "Presents data structures and related algorithms, beginning with a brief review of dynamic memory allocation. Discusses the fundamental data structures in detail, including the abstract representation, supporting algorithms, and implementation methods. Focuses on understanding the application of the abstract data structure and the circumstances that affect implementation decisions. Covers lists, stacks, queues, trees, hash tables, and graphs. Covers recursion and searching and sorting algorithms in detail. Emphasizes data abstraction and encapsulation in code design. Explores external storage structures, time permitting.",
+        "prerequisites": "Prerequisite(s):INFO\u00a05100with a minimum grade of B-  orINFO\u00a05100with a minimum grade of B-  orCSYE\u00a06200with a minimum grade of B-"
+    },
+    {
+        "course": "INFO\u00a06215.  Business Analysis and Information Engineering.  (4 Hours)",
+        "description": "Covers computer information systems and the decision-making process, determination of information requirements, system development life cycle, and system modeling and analysis. Uses a hands-on approach to introduce the student to software engineering methodologies and practices, business requirements specification, business process design, model-driven object-oriented design, software development, and maintenance. Emphasizes the effective leverage of the Unified Modeling Language (UML) to transform business issues and objectives to concrete software solutions that meet business needs and usability and user interface design as critical elements of a successful software engineering engagement.",
+        "prerequisites": "None"
+    },
+    {
+        "course": "INFO\u00a06245.  Planning and Managing Information Systems Development.  (4 Hours)",
+        "description": "Provides an overview of the most popular information systems needs\u2019 assessment methodologies including portfolio analysis, stage assessment, business systems planning, and the Alloway survey technique. Topics include utilities IS strategic plan prioritization techniques of business goal alignment, architectural compatibility, and cost/benefit and risk analysis to demonstrate how businesses match needs to budgetary constraints. Describes and evaluates options for the placement of the IS function within the organization and a variety of methods to manage the function. Introduces a generic application development and project planning methodology used as a model to facilitate the development of a four-stage project plan for a prototype project. Uses the Project Management Institute\u2019s PMBOK and Harvard Business School case studies extensively.",
+        "prerequisites": "None"
+    },
+    {
+        "course": "INFO\u00a06250.  Web Development Tools and Methods.  (4 Hours)",
+        "description": "Explores advanced server-side technologies and tools necessary to design and engineer complete web-based enterprise applications quickly. Designed to build on previous experience to cover the life cycle of a web-based application. Focuses on MVC web development frameworks to build server-side, data-intensive, and multitier web applications. Additionally, discusses designing rich internet applications (RIA) using AJAX and service-oriented architecture (SOA) using REST.",
+        "prerequisites": "Prerequisite(s):INFO\u00a05100with a minimum grade of B-  orINFO\u00a05100with a minimum grade of B-"
+    },
+    {
+        "course": "INFO\u00a06251.  Lab for INFO 6250.  (0 Hours)",
+        "description": "AccompaniesINFO\u00a06250. Offers additional instruction in Web tools discussed in class.",
+        "prerequisites": "None"
+    },
+    {
+        "course": "INFO\u00a06255.  Software Quality Control and Management.  (4 Hours)",
+        "description": "Examines techniques for the management and evolution of software systems. Topics include managing software as an asset; life cycle development and rapid development technologies; maintainability; quality assurance of software systems including testing strategies and problem analysis; software risk analysis; analysis of software project failures; process models, such as CMM and ISO 9001; configuration management; and the impact of new development technologies on software management.",
+        "prerequisites": "Prerequisite(s):INFO\u00a05100(may be taken concurrently) with a minimum grade of B-  orCSYE\u00a06200(may be taken concurrently) with a minimum grade of B-"
+    },
+    {
+        "course": "INFO\u00a06350.  Smartphones-Based Web Development.  (4 Hours)",
+        "description": "Covers application development for mobile devices using advanced development platforms. Focuses on how to write mobile applications using cross-platform development tools and processes. Topics include user interfaces, the software life cycle, persistent storage, networking using HTTP and other REST interfaces, and mobile/handheld data applications. Requires a final project.",
+        "prerequisites": "Prerequisite(s):INFO\u00a05100with a minimum grade of B-  orINFO\u00a05100with a minimum grade of B-  orCSYE\u00a06200with a minimum grade of B-"
+    },
+    {
+        "course": "INFO\u00a06660.  Business Ethics and Intellectual Property for Engineers.  (4 Hours)",
+        "description": "Seeks to support successful engineering careers by offering students an applied understanding of ethical principles in the workplace and fundamentals of intellectual property and the American legal system. Seeks to increase students\u2019 awareness of the ethical implications of their work and to influence colleagues to think and act in a socially cognizant manner. Introduces ethical principles and codes of professional ethics; types of intellectual property (patents, trade secrets, trademarks, copyrights); and fundamentals of the American legal system (sources of American law, contracts, torts, intellectual property, antitrust). Offers students an opportunity to practice verbal communication and presentation skills; develop an applied understanding of the relationship and differences between legal liability and ethical behavior; and develop applied critical thinking, communication, and presentation skills.",
+        "prerequisites": "None"
+    },
+    {
+        "course": "INFO\u00a06962.  Elective.  (1-4 Hours)",
+        "description": "Offers elective credit for courses taken at other academic institutions. May be repeated without limit.",
+        "prerequisites": "None"
+    },
+    {
+        "course": "INFO\u00a07110.  High-Performance Coding for Fintech.  (4 Hours)",
+        "description": "Distills the programming challenges constantly faced by quantitative developers in the fintech space. Presents high-performance computing challenges as well as their solutions for investment banks, market-making firms, capital management funds, and loan-financing institutions. Covers the art of high-performance computing using object-oriented structure of five prevailing programming languages widely adopted in the fintech industry: Java, C++, MATLAB, R, and Python. In particular, the course offers students an opportunity to obtain capabilities to successfully complete high-performance computing tasks in the following five application areas: global-macro arbitrage, quantitative equity portfolio management, option pricing and trading, fixed-income securities, and market making.",
+        "prerequisites": "Prerequisite(s):INFO\u00a06205with a minimum grade of B-"
+    },
+    {
+        "course": "INFO\u00a07205.  Advanced Application Engineering Project.  (4 Hours)",
+        "description": "Offers students an opportunity to master advanced software design and programming techniques for building complex software applications quickly. The engineering issues addressed assume the business problems are difficult to understand and manage in a practical manner\u2014the system capacity must support thousands or even millions of users in a multitude of roles. Addresses high-performance computing requirements, such as concurrency and control, scalability, replication, and failover.",
+        "prerequisites": "Prerequisite(s):INFO\u00a05100with a minimum grade of C-  orINFO\u00a05100with a minimum grade of D-  orCSYE\u00a06200with a minimum grade of C-"
+    },
+    {
+        "course": "INFO\u00a07225.  Accounting and Budgetary Systems for Engineers.  (4 Hours)",
+        "description": "Covers the latest engineering principles necessary for building complex software systems that comply with recognized standards in the financial industry. With automated business processes today, risk and responsibility are shifting to information technology (IT) systems. Offers students an opportunity to learn how to incorporate information-based controls related to the financial industry that signal trouble, detect violations, and provide accountability, as well as a working approval process. Emphasizes software design. Seeks to help engineers construct complex software from a sophisticated engineering perspective. Examines how to put together cutting-edge organizational systems that people in the financial world can put to good use. Designed to prepare students for jobs in the building, maintaining, and employment of such information systems.",
+        "prerequisites": "None"
+    },
+    {
+        "course": "INFO\u00a07245.  Agile Software Development.  (4 Hours)",
+        "description": "Offers students an opportunity to achieve a high level of practical understanding of software development life cycle (SDLC) with emphasis on agile and adaptive incremental methodologies. Examines techniques for the management and evolution of software systems, including project planning from requirements gathering, analysis, estimation, and releasing using a hands-on approach to implement agile methodologies. Also covers maintainability, including software risk analysis, project retrospectives, and process models such as capability maturity model, configuration management, and their practical implementation.",
+        "prerequisites": "Prerequisite(s):INFO\u00a05100with a minimum grade of B-  orINFO\u00a05100with a minimum grade of B-  orCSYE\u00a06200with a minimum grade of B-"
+    },
+    {
+        "course": "INFO\u00a07250.  Engineering of Big-Data Systems.  (4 Hours)",
+        "description": "Introduces a general framework for thinking about big data. Services such as Web analytics and intelligent e-commerce have promoted a rapid increase in the volume of data generated, analyzed, and archived. In order to solve the problems related to big data, a newer type of database product has emerged. Covers how to apply technologies like Hadoop, Accumulo, MongoDB, and various NoSQL databases to build simple, robust, and efficient systems to manage and analyze big data. Also describes an easy approach to big data systems that can be built and run by a small team of students. Guides students through the theory of big data systems, how to implement them in practice, and how to deploy and operate them once they are built.",
+        "prerequisites": "Prerequisite(s):INFO\u00a06205with a minimum grade of B-  orINFO\u00a06250with a minimum grade of B-  orINFO\u00a07390with a minimum grade of B-  orCSYE\u00a06220with a minimum grade of B-"
+    },
+    {
+        "course": "INFO\u00a07255.  Advanced Big-Data Applications and Indexing Techniques.  (4 Hours)",
+        "description": "Studies advanced indexing techniques and algorithms for big-data platforms such as Hadoop and NoSQL databases. Covers big-data design and indexing patterns to organize, aggregate, manipulate, and analyze huge amounts of data beyond human scale. Offers students an opportunity to learn advanced techniques to improve the performance and robustness of the advanced big-data programming models. Additional areas of focus include scalable graph databases, advanced indexing, and full-text searching in graph databases.",
+        "prerequisites": "Prerequisite(s):CSYE\u00a06220with a minimum grade of B-  orINFO\u00a06205with a minimum grade of B-  orINFO\u00a06250with a minimum grade of B-"
+    },
+    {
+        "course": "INFO\u00a07260.  Business Process Engineering.  (4 Hours)",
+        "description": "Addresses the question of how to understand and specify the flow of work responsibility and movement of information throughout the enterprise. For businesses to maximize the benefits of technology, they must transform their ad-hoc and often poorly defined ways of doing things to formal business processes. Analyzes the specification and implementation of complex information systems that integrate well into core business operations. Offers students an opportunity to learn how to use agile process specification techniques, dynamic process execution, and real-time measurement and reporting to support continuous business improvement and change.",
+        "prerequisites": "None"
+    },
+    {
+        "course": "INFO\u00a07285.  Organizational Change and IT.  (4 Hours)",
+        "description": "Focuses on the change effort needed to integrate a project into the firm\u2019s organizational structure, culture, business, and process metrics. Geared for students undertaking enterprise resource planning systems, or those involved in small or large organizational reengineering projects designed to make IT a primary focus of the firm\u2019s business strategy. Topics include management theories and organizational design principles; strategy and critical success factor formulation; methods to reach information systems maturity; business process modeling techniques; quality, the mindset, and the problem-solving tools; human resource, cultural, and technical change enablers; how to plan a business reengineering project; and implementation of major organizational change.",
+        "prerequisites": "None"
+    },
+    {
+        "course": "INFO\u00a07300.  Engineering Cybersecure Software Systems.  (4 Hours)",
+        "description": "Addresses design and implementation issues critical to producing cybersecure software systems by using a software development perspective. Deals with the question of how to make the requirements for confidentiality, integrity, and availability integral to the software development process from requirements gathering to design, development, configuration, deployment, and ongoing maintenance. Covers emerging software life-cycle practices that address both cybersecurity problems caused by bad software practices that leave software vulnerable to cyberattack and other software vulnerabilities that are caused by deficiencies in modeling of security requirements, architecture, and design issues.",
+        "prerequisites": "Prerequisite(s):INFO\u00a05100with a minimum grade of B-  orCSYE\u00a06200with a minimum grade of B-"
+    },
+    {
+        "course": "INFO\u00a07330.  Information Systems for Healthcare-Services Delivery.  (4 Hours)",
+        "description": "Addresses the important information systems questions facing the delivery and assessment of healthcare services from administrative, financial, and clinical perspectives. These include the use of electronic medical records; health information exchanges; and performance evaluation of providers, patients, and payers. Provides an introduction on how healthcare is delivered. Also focuses on various information management tools being implemented as well as those needed to move care delivery and quality forward.",
+        "prerequisites": "None"
+    },
+    {
+        "course": "INFO\u00a07374.  Special Topics in Information Systems.  (1-4 Hours)",
+        "description": "Covers state-of-the-art material of current interest. May be repeated without limit.",
+        "prerequisites": "None"
+    },
+    {
+        "course": "INFO\u00a07375.  Special Topics in Artificial Intelligence Engineering and Applications.  (1-4 Hours)",
+        "description": "Covers recent advances in neural nets and deep learning techniques with applications to large-scale engineering problems.",
+        "prerequisites": "Prerequisite(s):INFO\u00a06205with a minimum grade of B-"
+    },
+    {
+        "course": "INFO\u00a07385.  Managerial Communications for Engineers.  (4 Hours)",
+        "description": "Focuses on communication strategies and tactics for engineers at the interpersonal, team, and organizational level. Course topics include forms (oral and written), styles, and differences in communication; coaching and giving feedback to staff; and building teams, managing conflict, and special topics in organizational communication. The primary goal is to strengthen the students\u2019 social and emotional intelligence skills to help them progress along their engineering career path. Combines academic content with practical skill-building activities.",
+        "prerequisites": "None"
+    },
+    {
+        "course": "INFO\u00a07390.  Advances in Data Sciences and Architecture.  (4 Hours)",
+        "description": "Covers a wide range of skills and responsibilities that are necessary for managing complex business performance and operational data. Such data tend to be fragmented, poorly organized, and often flawed. Offers students an opportunity to learn how a more up-to-date mapping of complex data works and to be alerted to the care and attention they must give to such a task as well as the implications of the results. Covers best practices for managing all aspects of the data transformation life cycle, covering broad areas such as requirements gathering, meta-model design, data integration and transformation, as well as implementation and ongoing operations. Discusses tools for mapping fragmented data into business intelligence solutions that guide successful strategies.",
+        "prerequisites": "Prerequisite(s):INFO\u00a06105with a minimum grade of B"
+    },
+    {
+        "course": "INFO\u00a07405.  Advances in Engineering Medical Information Systems.  (4 Hours)",
+        "description": "Focuses on the fundamentals of engineering patient medical records as timelines of medical encounters that capture critical clinical decisions made in various contexts such as assessments, diagnoses, treatments, etc. Emphasizes semantically rich clinical information models to support predictive analysis in order to recognize patterns of disease early. Record systems typically focus on data recording for legal purposes, ignoring the critical needs of patients and caregivers. Introduces innovative software design and architecture techniques that recognize the complex interaction between patients and caregivers, provide immediately available detailed information for both, and thus invigorate clinical workplaces. Covers techniques for engineering medical applications as sociotechnical systems that promote the safety, effectiveness, and efficiency of core clinical operations.",
+        "prerequisites": "Prerequisite(s):INFO\u00a05100(may be taken concurrently) with a minimum grade of B-  orINFO\u00a05100(may be taken concurrently) with a minimum grade of B-"
+    },
+    {
+        "course": "INFO\u00a07420.  Drug Development Processes and Information Systems Compliance.  (4 Hours)",
+        "description": "Begins with the recognition that information technology (IT) has transformed the way that new drugs are developed today. From preclinical studies to small Phase-I clinical trials all the way up to large global Phase-III pivotal trials, virtually every aspect of drug development is evolving due to technological advances. Each of these advances carries with it technological, procedural, and regulatory challenges and uncertainties. This course explores many of today\u2019s most pressing and challenging IT questions facing the pharmaceutical/biotechnology industry and the FDA regarding the use of electronic records, databases, and information management systems that have become an integral part of development programs and regulatory submissions.",
+        "prerequisites": "None"
+    },
+    {
+        "course": "INFO\u00a07500.  Cryptocurrency and Smart Contract Engineering.  (4 Hours)",
+        "description": "Seeks to provide a detailed understanding of the function and deployment of smart contracts using the Solidity language. Digs deep into the technical design and operation of blockchain platforms and specifically the implementation of smart contracts for operationalizing business processes. Offers students an opportunity to practice the development of decentralized autonomous organization applications using blockchain scripting languages.",
+        "prerequisites": "Prerequisite(s):INFO\u00a05100with a minimum grade of B-  orINFO\u00a05100with a minimum grade of B-  orCSYE\u00a06200with a minimum grade of B-"
+    },
+    {
+        "course": "INFO\u00a07510.  Smart Contract Application Engineering and Development.  (4 Hours)",
+        "description": "Emphasizes the essential coding skills for implementing self-enforcing, multiparty, mutually beneficial, contractual rights and obligations on top of blockchain technologies. Offers students an opportunity to learn how to leverage the principles and mechanisms of \u201cdecentralized autonomous organization\u201d to programmatically coordinate the interaction between participating parties at a global scale without the need for trusting a third party and how to build blockchain-type applications that automate the interaction of a network of participating entities such as buyers, sellers, suppliers, insurance, and finance.",
+        "prerequisites": "Prerequisite(s):INFO\u00a07500with a minimum grade of B-"
+    },
+    {
+        "course": "INFO\u00a07520.  Engineering of Advanced Cryptocurrency Systems.  (4 Hours)",
+        "description": "Addresses programming and information systems aspects of bitcoin and other cryptocurrencies. Topics covered include fundamentals of bitcoin mining, the theory of distributed consensus, principles of strong anonymity and untraceability, smart contract security, and peer-to-peer networking. Offers students an opportunity to learn about current developments in, and challenges facing, the use of cryptocurrencies in terms of the computing platform and systems integration. Students also have an opportunity to gain practical experience through challenging programming projects.",
+        "prerequisites": "Prerequisite(s):INFO\u00a07500with a minimum grade of B-"
+    },
+    {
+        "course": "INFO\u00a07525.  Regulatory Aspects of Smart Contract Automation.  (2 Hours)",
+        "description": "Addresses the legal implication of using the blockchain to transfer and exchange money, perform trade transactions, maintain ownership of property, and enforce contractual obligations in secure and cost-effective ways. These applications present significant legal challenges in finance, property rights, and general commercial contracts in all industries. Offers students an opportunity to acquire the tools to engineer systems that adhere to existing and evolving regulatory frameworks. Highlights challenges around the issues of taxation, financial crimes, and money laundering, since blockchain technologies were designed to facilitate cross-border transactions.",
+        "prerequisites": "None"
+    },
+    {
+        "course": "INFO\u00a07535.  Digital Smart Contracts Product Innovations.  (2 Hours)",
+        "description": "Addresses the issue of how blockchain technology creates new ways of doing business. Blockchain technology uses bitcoin cryptocurrency to create value in a virtual setting. By linking the blockchain with real currency and the financial system, data, as well as business processes, a new breed of products and services can be realized. Explores innovative and disruptive applications of the blockchain.",
+        "prerequisites": "None"
+    },
+    {
+        "course": "INFO\u00a07610.  Special Topics in Natural Language Engineering Methods and Tools.  (4 Hours)",
+        "description": "Covers the latest techniques in natural language processing with applications to unstructured data.",
+        "prerequisites": "Prerequisite(s):INFO\u00a06205with a minimum grade of B-"
+    },
+    {
+        "course": "INFO\u00a07962.  Elective.  (1-4 Hours)",
+        "description": "Offers elective credit for courses taken at other academic institutions. May be repeated without limit.",
+        "prerequisites": "None"
+    },
+    {
+        "course": "INFO\u00a07986.  Research.  (0 Hours)",
+        "description": "Offers students an opportunity to conduct full-time research under faculty supervision.",
+        "prerequisites": "None"
+    },
+    {
+        "course": "INFO\u00a07990.  Thesis.  (1-8 Hours)",
+        "description": "Offers theoretical and experimental work conducted under the supervision of a departmental faculty.",
+        "prerequisites": "None"
+    },
+    {
+        "course": "INFO\u00a07996.  Thesis Continuation - Half-Time.  (0 Hours)",
+        "description": "Continues theoretical and experimental work conducted under departmental faculty supervision.",
+        "prerequisites": "Prerequisite(s):INFO\u00a07990with a minimum grade of C-"
+    }
+]
